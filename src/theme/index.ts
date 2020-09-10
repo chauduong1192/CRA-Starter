@@ -36,13 +36,107 @@ export const mediaQueries = Object.keys(devices).reduce((acc, label) => {
   return acc;
 }, {});
 
-const fonts = {
-    hel: 'HelveticaNeue',
+export const fonts = {
+  regular: 'font-family: "CircularStdBook"; font-weight: normal;',
+  medium: 'font-family: "CircularStdMedium"; font-weight: normal;',
+  bold: 'font-family: "CircularStdBold"; font-weight: normal;',
+  black: 'font-family: "CircularStdBlack"; font-weight: normal;',
+  size: size => `font-size: ${size}px;`,
 };
 
-const colors = {
-    black: '#333333',
-    white: '#000000'
+
+export const colors = {
+  primary: '#0052cc', // Blue
+  success: '#0B875B', // green
+  danger: '#E13C3C', // red
+  warning: '#F89C1C', // orange
+  secondary: '#F4F5F7', // light grey
+
+  textDarkest: '#172b4d',
+  textDark: '#42526E',
+  textMedium: '#5E6C84',
+  textLight: '#8993a4',
+  textLink: '#0052cc',
+};
+
+export const mixin = {
+  // darken: (colorValue, amount) =>
+  //   Color(colorValue)
+  //     .darken(amount)
+  //     .string(),
+  // lighten: (colorValue, amount) =>
+  //   Color(colorValue)
+  //     .lighten(amount)
+  //     .string(),
+  // rgba: (colorValue, opacity) =>
+  //   Color(colorValue)
+  //     .alpha(opacity)
+  //     .string(),
+  boxShadowMedium: css`
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  `,
+  boxShadowDropdown: css`
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px;
+  `,
+  truncateText: css`
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  `,
+  clickable: css`
+    cursor: pointer;
+    user-select: none;
+  `,
+  hardwareAccelerate: css`
+    transform: translateZ(0);
+  `,
+  cover: css`
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  `,
+  placeholderColor: colorValue => css`
+    ::-webkit-input-placeholder {
+      color: ${colorValue} !important;
+      opacity: 1 !important;
+    }
+    :-moz-placeholder {
+      color: ${colorValue} !important;
+      opacity: 1 !important;
+    }
+    ::-moz-placeholder {
+      color: ${colorValue} !important;
+      opacity: 1 !important;
+    }
+    :-ms-input-placeholder {
+      color: ${colorValue} !important;
+      opacity: 1 !important;
+    }
+  `,
+  scrollableY: css`
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  `,
+  // backgroundImage: imageURL => css`
+  //   background-image: url("${imageURL}");
+  //   background-position: 50% 50%;
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   background-color: ${colors.backgroundLight};
+  // `,
+  link: (colorValue = colors.textLink) => css`
+    cursor: pointer;
+    color: ${colorValue};
+    &:hover, &:visited, &:active {
+      color: ${colorValue};
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  `,
 };
 
 export default {

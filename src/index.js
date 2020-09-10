@@ -6,8 +6,10 @@ import { Provider } from 'react-redux';
 import theme from 'theme';
 import configureStore from 'redux/store';
 
-import './index.css';
-import App from './app.tsx';
+import NormalizeStyles from 'utils/normalize-style';
+import GlobalStyles from 'utils/global-style';
+
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const initialState = {};
@@ -17,6 +19,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
+        <NormalizeStyles />
+        <GlobalStyles />
         <App />
       </ThemeProvider>
     </Provider>
