@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css, DefaultTheme } from 'styled-components';
 
 const flexboxgrid = {
   // Defaults
@@ -18,7 +18,7 @@ const flexboxgrid = {
   }
 };
 
-const { breakpoints: { sm , md, lg} } = flexboxgrid;
+const { breakpoints: { sm , md, lg } }  = flexboxgrid;
 
 const devices = {
   tablet: sm,
@@ -36,27 +36,26 @@ export const mediaQueries = Object.keys(devices).reduce((acc, label) => {
   return acc;
 }, {});
 
-export const fonts = {
+export const fonts: DefaultTheme['fonts'] = {
   regular: 'font-family: "CircularStdBook"; font-weight: normal;',
   medium: 'font-family: "CircularStdMedium"; font-weight: normal;',
   bold: 'font-family: "CircularStdBold"; font-weight: normal;',
   black: 'font-family: "CircularStdBlack"; font-weight: normal;',
-  size: size => `font-size: ${size}px;`,
+};
+
+export const fontSizes: DefaultTheme['fontSizes'] = {
+  font12: 'font-size: 12px;',
+  font14: 'font-size: 14px;',
+  font16: 'font-size: 16px;',
+  font24: 'font-size: 24px;',
 };
 
 
-export const colors = {
-  primary: '#0052cc', // Blue
-  success: '#0B875B', // green
-  danger: '#E13C3C', // red
-  warning: '#F89C1C', // orange
-  secondary: '#F4F5F7', // light grey
-
-  textDarkest: '#172b4d',
-  textDark: '#42526E',
-  textMedium: '#5E6C84',
-  textLight: '#8993a4',
-  textLink: '#0052cc',
+export const colors: DefaultTheme['colors'] = {
+  primary: '#0052cc',
+  white: '#ffffff',
+  bgWhite: '#F9FAFC',
+  gray: '#5E6C84',
 };
 
 export const mixin = {
@@ -127,7 +126,7 @@ export const mixin = {
   //   background-size: cover;
   //   background-color: ${colors.backgroundLight};
   // `,
-  link: (colorValue = colors.textLink) => css`
+  link: (colorValue = colors.primary) => css`
     cursor: pointer;
     color: ${colorValue};
     &:hover, &:visited, &:active {
@@ -140,6 +139,7 @@ export const mixin = {
 };
 
 export default {
+    fontSizes,
     fonts,
     colors,
     flexboxgrid,

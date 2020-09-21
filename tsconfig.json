@@ -5,6 +5,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "removeComments": true,
     "forceConsistentCasingInFileNames": true,
     "rootDir": "src",
     "outDir": "build",
@@ -21,7 +22,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "noImplicitAny": false
+    "noImplicitAny": false,
   },
   "include": [
     "src", "config-overrides.js"

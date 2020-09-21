@@ -6,12 +6,28 @@ import React from 'react';import {
 
 import { Home } from 'views';
 
+const routes = [
+    {
+      path: "/",
+      component: Home,
+      exact: true,
+    },
+];
+
+const RouteWithSubRoutes = (route) => {
+    return (
+        <Route path={route.path} exact={route.exact}>
+            {route.component}
+        </Route>
+    );
+};
+
 const Routers = () => 
     <Router>
         <Switch>
-            <Route exact path="/">
-                <Home />
-            </Route>
+            {routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route} />
+            ))}
         </Switch>
     </Router>
 

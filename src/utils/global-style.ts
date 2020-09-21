@@ -1,19 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
-import { colors, fonts, mixin } from 'theme';
+import { colors, fonts, mixin, fontSizes } from 'theme';
 
 export default createGlobalStyle`
 
-  html, body, #root {
-    height: 100%;
-    min-height: 100%;
-    min-width: 768px;
-  }
 
   body {
-    color: ${colors.textDarkest};
+    color: ${colors.primary};
     -webkit-tap-highlight-color: transparent;
     line-height: 1.2;
-    ${fonts.size(16)}
+    ${fontSizes.font16}
     ${fonts.regular}
   }
 
@@ -75,7 +70,7 @@ export default createGlobalStyle`
     display: none;
   }
   select option {
-    color: ${colors.textDarkest};
+    color: ${colors.primary};
   }
   p {
     line-height: 1.4285;
@@ -93,5 +88,5 @@ export default createGlobalStyle`
   html {
     touch-action: manipulation;
   }
-  ${mixin.placeholderColor(colors.textLight)}
+  ${mixin.placeholderColor(colors.primary)}
 `;
